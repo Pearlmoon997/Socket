@@ -12,15 +12,16 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-//JFrame 을 사용하여 윈도우 창을 띄워준다.
-//끊임없는 데이터 교환을 위한 Runnable 을 implement
+//JFrame 을 사용하여 윈도우 창을 띄워준다. -> JFrame 은 스윙 클래스의 일, 구현되는 하나의 창
+//끊임없는 데이터 교환을 위한 Runnable 을 implements
+//자바 Swing -> 자바의 GUI 패키지 ----> AWT 보다 가볍고 컴포넌트가 자바로 작성되어 있어 어떤 플랫폼에서도 일관된 화면 작성 가능
 public class ChatClient extends JFrame implements ActionListener, Runnable {
     private JTextArea output;
     private JTextField input;
     private JButton sendBtn;
-    private Socket socket;
-    private ObjectInputStream reader = null;
-    private ObjectOutputStream writer = null;
+    private Socket socket; //소켓
+    private ObjectInputStream reader = null;    //객체를 직렬화하여 저장
+    private ObjectOutputStream writer = null;   //직렬화한 데이터를 역직렬화
 
     private String nickName;
 
